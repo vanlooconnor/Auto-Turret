@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+%change
 %cam1 = webcam(2);
 %img = snapshot(cam1);
 %figure(1)
