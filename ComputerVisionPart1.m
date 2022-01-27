@@ -1,18 +1,21 @@
+clear;close all;clc;
+minArea = 50;
+maxArea = 480*640;
+minEcc = 0;
+maxEcc = 1;
 cam1 = webcam(1);
 img = snapshot(cam1);
-pos   = [320 240];
-color = {'magenta'};
+
 figure(1)
-%imshow(img)
+imshow(img)
 hold on;
-rbg = insertMarker(img,pos,'+','color',color,'size',10);
-imshow(rbg);
-%xline(320,'r')
-%yline(240,'r')
+aimpoint = plot(320,240,'+m','MarkerSize',15);
+
 while true
  img = snapshot(cam1); 
- rbg = insertMarker(img,pos,'+','color',color,'size',10);
- imshow(rbg);
- [statsTargets,binTargets,binThreshold] = targetThreshold(img);
+ imshow(img);
+ hold on 
+ aimpoint = plot(320,240,'+m','MarkerSize',15);
+ [statsTargets,binTargets,binThreshold] = targetThreshold(img,minArea,maxArea,minEcc,maxEcc);
  drawnow
 end
