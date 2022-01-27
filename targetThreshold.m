@@ -1,9 +1,5 @@
-function [statsTargets,binTargets,bin] = targetThreshold(img)
-minArea = 30; %minimum size that a object can be
-maxArea = 300;%test
+function [statsTargets,binTargets,bin] = targetThreshold(img,minArea,maxArea,minEcc,maxEcc)
 
-minEcc = 0;
-maxEcc = 1;
 bin = createMask(img); %Performs color thresholding
 binFill = imfill(bin,'holes'); %Filling Holes in the resultant binary
 binMinArea = bwareaopen(bin,minArea); %Imposes a minimum area threshold
