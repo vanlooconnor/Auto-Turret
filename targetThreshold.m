@@ -1,6 +1,7 @@
 function [statsTargets,binTargets,bin] = targetThreshold(img)
 minArea = 30; %minimum size that a object can be
-maxArea = 300;
+maxArea = 300;%test
+
 minEcc = 0;
 maxEcc = 1;
 bin = createMask(img); %Performs color thresholding
