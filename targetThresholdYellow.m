@@ -9,7 +9,7 @@ idx = find([stats.Area] <= maxArea &...
     [stats.Eccentricity] >= minEcc &...
     [stats.Eccentricity] <= maxEcc); %sets minimum and maximum threshold values for area and eccentricity.
 statsTargets = stats(idx);%Imposes remaining property thresholding
-    if idx ~= 0
+    if idx ~= 0 % checks to see if there are no regions, if so then function continues without error
         for i = 1:idx
             binTargets{i} = lbl==i;
         end
